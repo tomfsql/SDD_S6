@@ -3,9 +3,16 @@ class Noeud:
         self.name = ""
         self.next = None
 
-    def setnext(self, newNext):
+    def setNext(self, newNext):
         self.next = newNext
-    
+
+    def getNext(self):
+        return self.next
+
+    def removeNext(self):
+        if(self.next != None):
+            self.next = None
+
     def setName(self, newName):
         self.name = newName
 
