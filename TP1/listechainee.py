@@ -78,3 +78,16 @@ class ListeChainee:
                 noeud = noeud.getNext()
             return noeud
 
+    def taille(self) -> int:
+        if(self.getHead() == None):
+            return 0
+        else:
+            taille = 1
+            noeud = self.getHead()
+            while(noeud != None and noeud.getNext() != None):
+                noeud = noeud.getNext()
+                taille+=1
+            return taille
+    def estVide(self) -> bool:
+        return (self.getHead() == None)
+
