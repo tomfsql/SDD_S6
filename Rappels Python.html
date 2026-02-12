@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rappels Python</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#rappels-sur-python-et-la-programmation-orientée-objet">Rappels sur Python et la programmation orientée objet</a>
+<ul>
+<li><a href="#f-string">f-string</a></li>
+<li><a href="#paramètres-optionnels-dans-une-fonction">Paramètres optionnels dans une fonction</a></li>
+<li><a href="#notion-de-classe">Notion de classe</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="rappels-sur-python-et-la-programmation-orientée-objet">Rappels sur Python et la programmation orientée objet</h1>
+<h2 id="f-string">f-string</h2>
+<p>Une <em>f-string</em> est une <strong>chaîne de caractères formatée</strong>. Cela permet de créer des chaînes de caractères très simplement, sans concaténation.</p>
+<p><em>Exemple :</em></p>
+<ul>
+<li>version sans f-string :</li>
+</ul>
+<pre class=" language-python"><code class="prism  language-python">a <span class="token operator">=</span> <span class="token number">1</span>
+b <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a = "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">", b = "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li>version avec f-string :</li>
+</ul>
+<pre class=" language-python"><code class="prism  language-python">a <span class="token operator">=</span> <span class="token number">1</span>
+b <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"a = {a}, b = {b}"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>💡 Remarquez le <code>f</code> qui précède la chaîne de caractères : il indique qu’il s’agit d’une f-string. Les variables entre accolades sont automatiquement remplacées par leur valeur.</p>
+<h2 id="paramètres-optionnels-dans-une-fonction">Paramètres optionnels dans une fonction</h2>
+<p>Dans une fonction, on peut spécifier une valeur par défaut pour des paramètres :</p>
+<p><em>Exemple :</em></p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">def</span> <span class="token function">reserverHotel</span><span class="token punctuation">(</span>nbPersonnes <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> petitDejeuner <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token comment"># ...</span>
+	<span class="token comment"># code de la fonction</span>
+	<span class="token comment"># ...</span>
+</code></pre>
+<p>Les paramètres qui disposent d’une valeur par défaut deviennent alors <strong>optionnels</strong> lors de l’appel à la fonction.</p>
+<p><em>Exemples :</em></p>
+<pre class=" language-python"><code class="prism  language-python">reserverHotel<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment"># on spécifie explicitement le premier paramètre (nbPersonnes) ; l'autre prend sa valeur par défaut (False)</span>
+<span class="token comment"># =&gt; nbPersonnes = 3, petitDejeuner = False</span>
+
+reserverHotel<span class="token punctuation">(</span>petitDejeuner <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span> <span class="token comment"># on spécifie le second paramètre ; dans ce cas, on est obligé d'indiquer son nom (petitDejeuner) l'autre prend sa valeur par défaut (False)</span>
+<span class="token comment"># =&gt; nbPersonnes = 1, petitDejeuner = True</span>
+
+reserverHotel<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># les deux paramètres prennent leur valeur par défaut</span>
+<span class="token comment"># =&gt; nbPersonnes = 1, petitDejeuner = False</span>
+
+reserverHotel<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span> <span class="token comment"># on spécifie des valeurs pour les deux paramètres</span>
+<span class="token comment"># =&gt; nbPersonnes = 4, petitDejeuner = True</span>
+</code></pre>
+<p>⚠️ Dans la définition d’une fonction, les paramètres optionnels doivent toujours suivre la liste des paramètres <em>non</em>-optionnels.</p>
+<h2 id="notion-de-classe">Notion de <em>classe</em></h2>
+<p>Dans quasiment tous les langages de programmation, on retrouve un certain nombre de <em>types de données</em> (des <em>entiers</em>, des <em>flottants</em>, des <em>chaînes de caractères</em>…) qui servent de briques de base à la construction des programmes. Dans certains de ces langages (par exemple Java), ces “types de base” sont appelés <em>types primitifs</em> ; en Python, <strong>tous</strong> les types sont appelés des <em>classes</em>.</p>
+<p>Une <em><strong>classe</strong></em>, c’est tout simplement un <em>nouveau type de donnée</em>, créé à partir d’un ou plusieurs autres types, sur lequel on définit les opérations qu’il est possible d’effectuer.</p>
+<p><strong>Exemple :</strong><br>
+Supposons que l’on souhaite écrire un jeu dans lequel les personnages disposent de différentes <em>capacités</em> :</p>
+<ul>
+<li>force</li>
+<li>magie</li>
+<li>vitesse</li>
+<li>guérison</li>
+</ul>
+<p>Pour gérer un ensemble de personnages, on pourrait stocker ces informations dans quatre listes séparées (une qui stocke les points de force, une autre les points de magie, etc.) :</p>
+<pre class=" language-python"><code class="prism  language-python">listeForce    <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+listeMagie    <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
+listeVitesse  <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
+listeGuerison <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
+</code></pre>
+<p>On se rend cependant vite compte qu’il n’est pas du tout pratique de manipuler toutes ces listes, et que rien n’empêche d’insérer une valeur “aberrante”, comme <code>-10000</code> dans une liste ! Il serait beaucoup plus pratique de créer un <em>nouveau type</em>, appelé par exemple <code>Personnage</code> qui regrouperait l’ensemble des capacités d’un personnage. Pour définir la nouvelle classe <code>Personnage</code>, nous écrirons :</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">class</span> <span class="token class-name">Personnage</span><span class="token punctuation">:</span>
+	<span class="token comment"># ... suite du code ...</span>
+</code></pre>
+<p>Une classe est donc un “moule” qui permet de créer des <em><strong>objets</strong></em>. Par exemple on pourra créer un objet de type <code>Personnage</code> appelé <code>gandalf</code>, et un autre appelé <code>frodon</code> : on dit que <code>gandalf</code>  et <code>frodon</code> sont des <em><strong>instances</strong></em> de la classe <code>Personnage</code>.</p>
+<h3 id="créer-des-objets--le-constructeur">Créer des objets : le <em>constructeur</em></h3>
+<p>En Python, toutes les classes disposent automatiquement d’une fonction (ou <em>méthode</em>, dans la terminologie orientée objet) nommée <code>__init__</code>. Il s’agit du <strong>constructeur</strong>, c’est-à-dire de la méthode qui est appelée lors de la création (ou <em>instanciation</em>) d’un objet. Comme son nom l’indique, elle permet d’<em>initialiser</em> les différents <strong>attributs</strong> de la classe ; dans notre cas, elle permet d’initialiser les capacités d’un personnage lors de sa création.</p>
+<p><em>Exemple :</em> le constructeur de la classe <code>Personnage</code> s’écrirait par exemple comme ceci :</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">class</span> <span class="token class-name">Personnage</span> <span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nom<span class="token punctuation">,</span> force<span class="token punctuation">,</span> magie<span class="token punctuation">,</span> vitesse<span class="token punctuation">,</span> guerison<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> nom
+        self<span class="token punctuation">.</span>strength <span class="token operator">=</span> force
+        self<span class="token punctuation">.</span>magic <span class="token operator">=</span> magie
+        self<span class="token punctuation">.</span>speed <span class="token operator">=</span> vitesse
+        self<span class="token punctuation">.</span>recovery <span class="token operator">=</span> guerison
+</code></pre>
+<blockquote>
+<p>💡 <strong>Nom des méthodes</strong><br>
+Certaines méthodes, comme <code>__init__</code> ont un nom qui commence et se termine par deux traits du bas (“underscore”). C’est une convention pour certaines méthodes prédéfinies en Python ; les méthodes que <strong>vous</strong> définirez dans vos classes n’ont pas besoin de suivre cette convention.</p>
+</blockquote>
+<blockquote>
+<p>💡 Le paramètre <em>self</em><br>
+Le constructeur, et toutes les autres méthodes d’une classe, doivent impérativement recevoir un premier paramètre nommé <code>self</code> (en réalité, on peut lui donner n’importe quel nom, mais par convention on l’appelle toujours <code>self</code>).  C’est un moyen de désigner <strong>l’objet que l’on est en train de manipuler</strong>, et permet de distinguer une <em>méthode</em> (ou fonction de classe) d’une fonction “ordinaire” (pour ceux qui ont déjà fait du C++ ou du Java, c’est l’équivalent du mot-clé <em>this</em>).</p>
+</blockquote>
+<blockquote>
+<p>💡 Noms des paramètres et des attributs<br>
+On peut évidemment donner les noms que l’on souhaite aux paramètres du constructeur et aux attributs de la classe ; dans l’exemple ci-dessus, les paramètres sont en français et les attributs en anglais pour insister sur le fait qu’ils ne désignent <strong>pas</strong> les mêmes variables ! Mais on pourrait tout aussi bien leur donner le même nom (c’est d’ailleurs ce que font souvent les développeurs).</p>
+</blockquote>
+<p>Maintenant que nous disposons de la classe <code>Personnage</code>, nous allons pouvoir créer des objets de type <code>Personnage</code>, autrement dit des <strong>instances</strong> de la classe <code>Personnage</code>. En Python, c’est très simple, il suffit d’utiliser le nom de la classe suivi de parenthèses :</p>
+<pre class=" language-python"><code class="prism  language-python">gandalf <span class="token operator">=</span> Personnage<span class="token punctuation">(</span><span class="token string">"Gandalf"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+frodon  <span class="token operator">=</span> Personnage<span class="token punctuation">(</span><span class="token string">"Frodon"</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Par ailleurs, nous pouvons <strong>déclencher une erreur</strong> si nous fournissons une valeur incorrecte dans le constructeur :</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">class</span> <span class="token class-name">Personnage</span> <span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nom<span class="token punctuation">,</span> force<span class="token punctuation">,</span> magie<span class="token punctuation">,</span> vitesse<span class="token punctuation">,</span> guerison<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> nom
+    
+        <span class="token keyword">if</span> force <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+	        <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"La force ne peut pas être négative"</span><span class="token punctuation">)</span>
+	    <span class="token keyword">else</span><span class="token punctuation">:</span>
+			self<span class="token punctuation">.</span>strength <span class="token operator">=</span> force
+    
+        self<span class="token punctuation">.</span>magic <span class="token operator">=</span> magie
+        self<span class="token punctuation">.</span>speed <span class="token operator">=</span> vitesse
+        self<span class="token punctuation">.</span>recovery <span class="token operator">=</span> guerison
+</code></pre>
+<p>Le code suivant provoque une erreur :</p>
+<pre class=" language-python"><code class="prism  language-python">boromir <span class="token operator">=</span> Personnage<span class="token punctuation">(</span><span class="token string">"Boromir"</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span>
+<span class="token comment"># ValueError: La force ne peut pas être négative</span>
+</code></pre>
+<h3 id="accéder-aux-attributs">Accéder aux attributs</h3>
+<p>Pour accéder à un attribut d’un objet, c’est très simple : on utilise la notation <code>objet.attribut</code> ; par exemple :</p>
+<pre class=" language-python"><code class="prism  language-python">gandalf <span class="token operator">=</span> Personnage<span class="token punctuation">(</span><span class="token string">"Gandalf"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"{gandalf.name} a un niveau de magie égal à {gandalf.magic}"</span><span class="token punctuation">)</span>
+<span class="token comment"># Affiche : Gandalf a un niveau de magie égal à 10</span>
+</code></pre>
+<h3 id="méthodes-__str__-et-__repr__">Méthodes <code>__str__</code> et <code>__repr__</code></h3>
+<p>Par défaut, la fonction Python <code>print</code> ne sait pas comment afficher le contenu d’un objet, et se contente donc d’afficher l’<em>adresse mémoire</em> de cet objet :</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;&gt;</span> gandalf <span class="token operator">=</span> Personnage<span class="token punctuation">(</span><span class="token string">"Gandalf"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>gandalf<span class="token punctuation">)</span>
+<span class="token operator">&lt;</span>__main__<span class="token punctuation">.</span>Personnage <span class="token builtin">object</span> at <span class="token number">0x00000000004D0AF0</span><span class="token operator">&gt;</span>
+</code></pre>
+<p>Pas très explicite, n’est-ce pas ?</p>
+<p>La méthode <code>__str__</code> permet de spécifier comment doit être représenté un objet sous forme de chaîne de caractères ; elle est <strong>automatiquement appelée quand on utilise <code>print</code></strong>.</p>
+<p>⚠️ La méthode <code>__str__</code> doit <strong>retourner</strong> une chaîne de caractères (à l’aide de l’instruction <code>return</code>) et non <em>afficher</em> une chaîne.</p>
+<p>Supposons par exemple que nous souhaitions afficher nos personnages sous la forme :<br>
+<code>Nom (Force : www, Magie : xxx, Vitesse : yyy, Guérison : zzz)</code>. Voici comment obtenir écrire la méthode <code>__str__</code>  correspondante :</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">class</span> <span class="token class-name">Personnage</span> <span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nom<span class="token punctuation">,</span> force<span class="token punctuation">,</span> magie<span class="token punctuation">,</span> vitesse<span class="token punctuation">,</span> guerison<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># ... détail du constructeur, cf. ci-dessus</span>
+    
+    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	    <span class="token keyword">return</span> f<span class="token string">"{self.nom} (Force : {self.strength}, Magie : {self.magic}, Vitesse : {self.speed}, Guérison : {self.recovery})"</span>
+</code></pre>
+<p>Désormais,  la fonction <code>print</code> sait comment afficher nos personnages :</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;&gt;</span> gandalf <span class="token operator">=</span> Personnage<span class="token punctuation">(</span><span class="token string">"Gandalf"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>gandalf<span class="token punctuation">)</span>
+Gandalf <span class="token punctuation">(</span>Force <span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> Magie <span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span> Vitesse <span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span> Guérison <span class="token punctuation">:</span> <span class="token number">7</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Il existe une autre méthode très similaire à <code>__str__</code>, nommée <code>__repr__</code>. Il existe quelques différences entre elles, mais retenez simplement que :</p>
+<ul>
+<li><code>__repr__</code> est utilisée par les outils de débogage de Visual Studio Code, mais pas <code>__str__</code> ;</li>
+<li>en l’absence de méthode <code>__str__</code>, la méthode <code>__repr__</code> est automatiquement appelée si elle existe.</li>
+</ul>
+<p>Il est donc préférable, dans le cadre de ce cours, de systématiquement écrire la méthode <code>__repr__</code>.</p>
+<blockquote>
+<p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
+</blockquote>
+
+    </div>
+  </div>
+</body>
+
+</html>
