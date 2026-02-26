@@ -83,5 +83,15 @@ Ordre croissant : 6, lg(lg(n)), lg(n), lg(n²), sqrt(n), n, n(lg(n)), (n²,(n-n�
 
 ## Exercice 3
 
-Par ordre : log(10⁶) = 6, 10⁶, 10^12^, 2^10^6^^
-Donc 6, 1, 10^-6^, encore moins
+1. Par ordre : log(10⁶) = 6, 10⁶, 10^12^, 2^10^6^^
+    Donc 6, 1, 10^-6^, encore moins
+
+2. Pour 2^n^ : 10^-6^ s/opération -> 2^n^ = 10⁶ -> log(n) = log(10⁶)
+    log(n) = 19 -> n = 524288 pour 1 seconde
+
+## Exercice 5
+
+## Question 1
+
+Nombre d'itérations : 2 -> sqrt(n)+1
+Nombre d'opérations : 2
