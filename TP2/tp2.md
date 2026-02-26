@@ -7,10 +7,10 @@
     ```python=
     test = 0
     for i in range(n):
-    test = test + 1
+        test = test + 1
 
     for j in range(n):
-    test = test - 1
+        test = test - 1
     ```
 
     1 affectation
@@ -25,8 +25,8 @@
     ```python=
     test = 0
     for i in range(n):
-    for j in range(n):
-        test = test + i * j
+        for j in range(n):
+            test = test + i * j
     ```
 
     1 affectation + n x n x (3) = 3n² + 1 = O(n²) = Θ(n²)
@@ -59,7 +59,7 @@
         i = i // 2
     ```
 
-    1 affectation + n x ( 4 opérations ) = 4n + 1 = O(n). Meilleur cas ( n = 0) : O(1) -> pas de Θ possible
+    1 affectation + log(n) x ( 4 opérations ) = log(n) + 1 = O(log(n)) = Θ(log(n))
 
 5. Programme 5
 
@@ -72,6 +72,16 @@ for i from 1 to n*n:
 ```
 
 1 affectation + n² x (1+2+3+....+n²) x 6 x 2
-1 affectation + n² x ((n²(n²+1)/2) x 6 x 2
+1 affectation + n² x ((n²(n²+1)/2)) x 6 x 2
 1 affectation + n² x ((n⁴ + n²)/2) x 6 x 2
-1 affectation + n⁶ x n² x 6 x 2 = O(n⁶) = Θ(n⁶)
+
+1 affectation + n⁶ x n² x 6 x 2 = O(n⁴) = Θ(n⁴)
+
+## Exercice 2
+
+Ordre croissant : 6,(3/2)^n, lg(lg(n)), lg(n) lg(n²), sqrt(n), n, n(lg(n)), n³, (n-n²+5n³), n³+lg(n), 2^n-1^, 2^n^
+
+## Exercice 3
+
+Par ordre : log(10⁶) = 6, 10⁶, 10^12^, 2^10^6^^
+Donc 6, 1, 10^-6^, encore moins
