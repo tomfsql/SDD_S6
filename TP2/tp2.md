@@ -79,7 +79,7 @@ for i from 1 to n*n:
 
 ## Exercice 2
 
-Ordre croissant : 6,(3/2)^n, lg(lg(n)), lg(n) lg(n²), sqrt(n), n, n(lg(n)), n³, (n-n²+5n³), n³+lg(n), 2^n-1^, 2^n^
+Ordre croissant : 6, lg(lg(n)), lg(n), lg(n²), sqrt(n), n, n(lg(n)), (n²,(n-n²+5n³), n³), n³+lg(n), (3/2)^n, 2^n-1^, 2^n^
 
 ## Exercice 3
 
