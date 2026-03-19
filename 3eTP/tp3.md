@@ -13,3 +13,13 @@ def fibonacci1(k,n) :
         first = second
         k+=1
 ```
+
+## Exerice 4
+
+hanoi(n,o,d,i):
+    if n == 1:
+        déplacer de o à d
+    else:
+        hanoi(n-1,o,i,d)
+        hanoi(1,o,d,i)
+        hanoi(n-1,i,d,o)
