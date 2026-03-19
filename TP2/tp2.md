@@ -93,5 +93,12 @@ Ordre croissant : 6, lg(lg(n)), lg(n), lg(n²), sqrt(n), n, n(lg(n)), (n²,(n-n�
 
 ## Question 1
 
-Nombre d'itérations : 2 -> sqrt(n)+1
+Nombre d'itérations : 2 -> sqrt(n)+1 -> sqrt(n) + 1 - 2 = Θ(sqrt(n))
 Nombre d'opérations : 2
+
+Total : 2 * Θ(sqrt(n)) = Θ(sqrt(n))
+
+n ( en base 10 ) : log~(2)~(n) chiffres
+t = log(n) -> = 2^t^
+
+Donc sqrt(n) opérations -> sqrt(2^t^) = 2^(t/2)^
