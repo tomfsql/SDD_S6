@@ -14,4 +14,3 @@ Conservation :
 - après 3 itérations, tab[0:3len/3] est trié
 
 ### Question 2
-
