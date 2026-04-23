@@ -47,9 +47,8 @@ class TableHachage:
             raise ValueError("Table pleine")
 
         offset = self._h(disque.ref_cat)
-        d = Disque(disque.ref_cat, disque.titre, disque.annee, disque.prix)
         if self.rechercher(offset) == None:
-            disques.append(d)
+            disques.append(disque)
         else:
             offset +=1
             while(self.rechercher(offset) != None):
@@ -61,8 +60,7 @@ class TableHachage:
 
     def rechercher(self, ref_cat: int) -> Disque | None:
         """Renvoie le Disque d'ref_cat donné, ou None s'il est absent."""
-        length = len(self)
-        for i in range(length):
+        for i in range(self.__len__):
             if disques[i].ref_cat == ref_cat:
                 return disques[i]
 
@@ -73,7 +71,7 @@ class TableHachage:
         length = self._h(ref_cat)
         for i in range(length):
             if disques[i].ref_cat == ref_cat:
-                self.table[i] = DELETED
+                #self.table[i] = DELETED
                 return True
         else:
             return False
