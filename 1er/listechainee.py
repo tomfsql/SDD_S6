@@ -36,7 +36,7 @@ class ListeChainee:
             newNext = currentNode.getNext()
             currentNode.setNext(valeur)
             valeur.setNext(newNext)
-    
+
     def removeAtGivenPos(self, position):
         currentPosition  = 0
         if(self.getHead() != None):
@@ -91,3 +91,16 @@ class ListeChainee:
     def estVide(self) -> bool:
         return (self.getHead() == None)
 
+    def __repr__(self) -> str | None:
+        if(self.getHead() == None):
+            return ""
+        else:
+            toString = ""
+            noeud = self.getHead()
+            toString = noeud.__repr__()
+            while(noeud != None and noeud.getNext() != None):
+                noeud = noeud.getNext()
+                repr = noeud.__repr__()
+                if(repr != None):
+                    toString += repr
+        return toString
